@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "Http模拟请求(跨域Ajax)",
+    "version": "1.0",
+    "description": "Http模拟请求)",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "Ajax跨域请求",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "http://www.java1234.com/"
+    ]
+}

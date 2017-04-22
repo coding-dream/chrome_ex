@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 400px;
+    height: 100px;
+}
+
+div {
+    line-height: 100px;
+    font-size: 42px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="message">正在访问</div>
+
+
+
+<!--在chrome扩展中，js不能写在html中,只能引入的形式,默认网站是不支持跨域的(安全考虑)，chrome扩展支持跨域-->
+<script src="js/jquery.js"></script>
+<script src="js/httpUtils.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
