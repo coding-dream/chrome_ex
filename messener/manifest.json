@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "通信",
+    "version": "1.0",
+    "description": "通信",
+    "icons": {
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
+    "browser_action": {
+      "default_icon": "images/icon.png",
+      "default_title": "通信"
+    },
+	"background": {
+		"scripts": [
+			"js/background.js"
+		]
+	},
+	"permissions": [ "http://*/*", "https://*/*","contextMenus"] // 您不需要在应用的清单文件中声明任何权限就能使用 chrome.tabs 的大多数方法和事件。然而，如果您需要访问 tabs.Tab 的 url、title 或 favIconUrl 属性，您必须在清单文件中声明 "tabs" 权限
+}

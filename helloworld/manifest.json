@@ -9,16 +9,13 @@
     "description": "Http模拟请求",
 	// 图标，一般偷懒全部用一个尺寸的也没问题
     "icons": {
-        "16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
+        "16": "images/head.png",
+        "48": "images/head.png",
+        "128": "images/head.png"
     },
 	// browser_action、page_action、app必须三选一
 	 "browser_action": {
-        "default_icon": {
-            "19": "images/icon19.png",
-            "38": "images/icon38.png"
-        },
+        "default_icon": "images/icon38_0.png",
         "default_title": "Ajax跨域请求",
         "default_popup": "popup.html"
     },
