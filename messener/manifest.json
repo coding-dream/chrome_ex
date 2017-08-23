@@ -12,10 +12,18 @@
       "default_icon": "images/icon.png",
       "default_title": "通信"
     },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["js/jquery.js","js/content.js"], // 因为js的相互隔离，所以想要使用jquery必须自己引入。
+            "css": ["css/custom.css"],
+            "run_at": "document_start"
+        }
+    ],    
 	"background": {
 		"scripts": [
 			"js/background.js"
 		]
 	},
-	"permissions": [ "http://*/*", "https://*/*","contextMenus"] // 您不需要在应用的清单文件中声明任何权限就能使用 chrome.tabs 的大多数方法和事件。然而，如果您需要访问 tabs.Tab 的 url、title 或 favIconUrl 属性，您必须在清单文件中声明 "tabs" 权限
+	"permissions": [ "http://*/*", "https://*/*"] 
 }
