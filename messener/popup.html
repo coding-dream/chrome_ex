@@ -15,5 +15,11 @@
 </head>
 <body>
 	<h1>通信演示</h1>
+	<div id="head"><span>head</span></div>
+	<button id="check_media">检测视频</button>
+
+<!--这里一定要加，content-script注入的是content.js供使用的和popup（background）不共用-->
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/popup.js"></script>
 </body>
 </html>

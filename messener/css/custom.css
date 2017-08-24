@@ -1,10 +1,10 @@
 body{
 	background: #f0f;
 	padding: 10px;
-	margin: 50px;
+	margin: 10px;
 }
 .plugin_a{
 	color:yellow;
 	font-size: 20px;
-	background: white;
+	background: blue;
 }
