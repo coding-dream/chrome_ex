@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "injected",
+    "version": "1.0",
+    "description": "injected",
+    "icons": {
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
+    "browser_action": {
+      "default_icon": "images/icon.png",
+      "default_title": "injected",
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            //"matches": ["http://*/*", "https://*/*"],
+            // "<all_urls>" 表示匹配所有地址
+            "matches": ["*://*/*"], // content_scripts是注入到页面中的，算是页面的一部分，所以不能跨域操作。
+            "js": ["js/jquery.js","js/content.js"], // 因为js的相互隔离，所以想要使用jquery必须自己引入。
+            "run_at": "document_start"
+        }
+    ],    
+	"background": {
+        "page": "background.js"
+        //"scripts": ["js/background1.js","background2.js"]
+	},
+	"permissions": [ "http://*/*", "https://*/*","tabs"] 
+}

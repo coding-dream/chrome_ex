@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tools</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+	body {
+		font-family: 'Microsoft Yahei';
+		width: 500px;
+		min-height: 100px;
+	}
+	a {margin-right: 10px;}
+	</style>
+</head>
+<body>
+	<h1>动态注入技术</h1>
+	<button id="update_bg_color1">动态注入Js1</button>
+	<button id="update_bg_color2">动态注入Js2</button>
+
+<!--这里一定要加，content-script注入的是content.js供使用的和popup（background）不共用-->
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/popup.js"></script>
+</body>
+</html>

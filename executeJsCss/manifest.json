@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "动态注入技术",
+    "version": "1.0",
+    "description": "动态注入技术",
+    "icons": {
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
+    "browser_action": {
+      "default_icon": "images/icon.png",
+      "default_title": "动态注入技术",
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"], //content_scripts是注入到页面中的，算是页面的一部分，所以不能跨域操作。
+            "js": ["js/jquery.js","js/content.js"],
+            "run_at": "document_start"
+        }
+    ],    
+        // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
+    "web_accessible_resources": ["images/icon.png","js/execute.js"],
+	"background": {
+        "scripts": [
+            "js/background.js"
+        ]
+	},
+	"permissions": [ "http://*/*", "https://*/*","tabs"] 
+}
