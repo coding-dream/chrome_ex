@@ -53,7 +53,7 @@ function fuckBaiduAD(){
 			<style id = "my_create_css">
 				.ad_right{ display:none; }
 				.ad_recomment{ display:none; }
-			</style>
+			</style> 
 		*/
 		var temp = document.createElement('style');
 		temp.id = 'my_create_css';

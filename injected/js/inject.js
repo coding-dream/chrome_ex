@@ -13,5 +13,5 @@ function invokeContentScript1(code)
 // 发送普通消息到content-script
 function invokeContentScript2(data)
 {
-	window.postMessage({cmd: 'message', data: data}, '*');
+	window.postMessage({cmd: 'message', data: data}, '*'); 
 }
