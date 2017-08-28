@@ -29,6 +29,6 @@ function executeFile(fileStr){
 }
 
 setTimeout(function(){
-	executeCode('document.body.style.backgroundColor="yellow";')
+	executeCode('document.body.style.backgroundColor="yellow";');
 	// executeFile("execute.js");
 },3000);
