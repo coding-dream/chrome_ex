@@ -7,29 +7,17 @@ function getCurrentTabId(callback)
 	});
 }
 
-// 动态执行JS代码
-// chrome.tabs.executeScript(tabId, {code: 'document.body.style.backgroundColor="red"'});
-// 动态执行JS文件
-// chrome.tabs.executeScript(tabId, {file: 'some-script.js'});
-
-// 动态执行CSS代码，TODO，这里有待验证
-// chrome.tabs.insertCSS(tabId, {code: 'xxx'});
-// 动态执行CSS文件
-// chrome.tabs.insertCSS(tabId, {file: 'some-style.css'});
-
-
 // 向content-script注入JS片段
 function executeCode(codeStr){
 	getCurrentTabId(function(tabId){
-		chrome.tabs.executeScript(tabId, {code: codeStr});
+		chrome.tabs.executeScript(tabId, {code: codeStr,runAt: "document_start"});
 	});
 }
 
-// file 方式一直执行失败，暂时不在测试
+// 向content-script注入JS文件
 function executeFile(fileStr){
-	alert(fileStr);
 	getCurrentTabId(function(tabId){
-		chrome.tabs.executeScript(tabId, {file: fileStr});
+		chrome.tabs.executeScript(tabId, {file: fileStr,runAt: "document_start"});
 	});
 }
 
@@ -40,5 +28,5 @@ $('#update_bg_color1').click(() => {
 
 // 修改背景色2
 $('#update_bg_color2').click(() => {
-	executeFile("execute.js");
+	executeFile("js/execute.js");
 });

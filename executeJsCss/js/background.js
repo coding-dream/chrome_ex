@@ -7,28 +7,21 @@ function getCurrentTabId(callback)
 	});
 }
 
-// 动态执行JS代码
-// chrome.tabs.executeScript(tabId, {code: 'document.body.style.backgroundColor="red"'});
-// 动态执行JS文件
-// chrome.tabs.executeScript(tabId, {file: 'some-script.js'});
-
-
 // 向content-script注入JS片段
 function executeCode(codeStr){
 	getCurrentTabId(function(tabId){
-		chrome.tabs.executeScript(tabId, {code: codeStr});
+		chrome.tabs.executeScript(tabId, {code: codeStr,runAt: "document_start"});
 	});
 }
 
-// file 方式一直执行失败，暂时不在测试
+// 向content-script注入JS文件
 function executeFile(fileStr){
-	alert(fileStr);
 	getCurrentTabId(function(tabId){
-		chrome.tabs.executeScript(tabId, {file: fileStr});
+		chrome.tabs.executeScript(tabId, {file: fileStr,runAt: "document_start"});
 	});
 }
 
 setTimeout(function(){
 	executeCode('document.body.style.backgroundColor="yellow";');
-	// executeFile("execute.js");
+	executeFile("js/execute.js");
 },3000);

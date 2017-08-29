@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "播放器",
+	"version": "1.0.0",
+	"icons":
+	{
+		"16": "images/icon.png",
+		"48": "images/icon.png",
+		"128": "images/icon.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+	},
+
+	"browser_action": 
+	{
+		"default_icon": "images/icon.png",
+		"default_title": "在线播放器"
+	},
+	"content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+			"js": ["js/jquery.js","js/content.js"], // 可以使用通配符如 js/*
+            "run_at": "document_start"
+        }
+    ], 
+	"permissions":
+	[
+		"webRequest", // web请求
+		"webRequestBlocking", // 阻塞式web请求
+		"http://*/*",
+		"https://*/*",
+		"tabs"
+	]
+}

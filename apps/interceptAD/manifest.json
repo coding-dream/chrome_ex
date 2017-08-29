@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "屏蔽视线",
+	"version": "1.0.0",
+	"icons":
+	{
+		"16": "images/icon.png",
+		"48": "images/icon.png",
+		"128": "images/icon.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+	},
+	"browser_action": 
+	{
+		"default_icon": "images/icon.png",
+		"default_title": "屏蔽视线",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+        {
+            "matches": ["<all_urls>"], // 即使是使用chrome.tabs.executeScript也是content_scripts的一种方式，必须声明content_scripts
+			"js": ["js/jquery.js","js/content.js"],
+            "run_at": "document_start"
+        }
+    ], 
+	"permissions":
+	[
+		"webRequest", // web请求
+		"webRequestBlocking", // 阻塞式web请求
+		"http://*/*",
+		"https://*/*",
+		"tabs"
+	]
+}
