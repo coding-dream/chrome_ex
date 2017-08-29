@@ -28,7 +28,7 @@ function initCustomPanel(){
 		</style>
 		<div class = "tip" style="display:none;">
 			<a id="down_url" href="#">视频地址</a><br>
-			<a class = "btn_down" href="#">复制下载地址</a>
+			<button class = "btn_down" href="#">复制下载地址</button>
 		</div>
 	`;
 	document.body.appendChild(panel);

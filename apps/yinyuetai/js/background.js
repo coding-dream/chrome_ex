@@ -27,9 +27,10 @@ chrome.webRequest.onBeforeRequest.addListener(details => {
 chrome.webRequest.onHeadersReceived.addListener(details => {
 	for (var i = 0; i < details.responseHeaders.length; i++) {
 		if(details.responseHeaders[i].name === "Content-Type" && details.responseHeaders[i].value === "video/mp4"){
-			console.log("the video is : " + details.url);
 			// 注入js
+			console.log("the video is : " + details.url);
 			// executeCode('document.body.style.backgroundColor="yellow";');
+			// executeCode('document.body.style.backgroundColor=.headers);
 
 			var letShow = "$('.tip').show();";
 			executeCode(letShow);
@@ -46,6 +47,7 @@ chrome.webRequest.onHeadersReceived.addListener(details => {
 					hidden.setAttribute('id', 'copy_text');
 					hidden.setAttribute('value', '{2}');
 					document.body.appendChild(hidden);
+
 
 					var input = document.getElementById("copy_text");
 					input.select(); // 选择对象
