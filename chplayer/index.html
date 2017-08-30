@@ -1,0 +1,58 @@
+<h1>temp</h1>
+<div id="dtgvideo">
+     	<div id="a1" style="width:970px;height:634px;"></div>
+	 	<script type="text/javascript" src="chplayer.min.js"></script>
+		<script type="text/javascript">
+				var videoObject = {
+					container: '#a1', //容器的ID或className
+					variable: 'player',
+					autoplay: true, //是否自动播放
+					loaded: 'loadedHandler', //当播放器加载后执行的函数
+					video:[
+						// ['http://jia4.m3u8.date:9999/ZQ3q0bix/hls/index.m3u8','','',0],
+						['http://220.194.199.186/9/o/q/w/d/oqwdrjewkpgnrgvsbyvwtbcviklovx/hc.yinyuetai.com/C2B001405CE005D4968B202EE5B4ADCA.flv?sc=852cd4aba820fb5c&br=782&vid=125060&aid=212&area=KR&vst=2&ptp=mv&rd=yinyuetai.com','','',0],
+					]
+				};
+				var player = new chplayer(videoObject);
+
+				function loadedHandler() {
+					player.addListener('pause', pauseHandler); //监听暂停播放
+					// player.addListener('error', errorHandler); //监听视频加载出错
+					// player.addListener('loadedmetadata', loadedMetaDataHandler); //监听元数据
+					// player.addListener('play', playHandler); //监听暂停播放
+					// player.addListener('timeupdate', timeUpdateHandler); //监听播放时间
+					// player.addListener('seeking', seekingHandler); //监听跳转播放
+					// player.addListener('seeked', seekedHandler); //监听跳转播放完成
+					// player.addListener('volumechange', volumeChangeHandler); //监听音量改变
+					// player.addListener('full', fullHandler); //监听全屏/非全屏切换
+					// player.addListener('ended', endedHandler); //监听全屏/非全屏切换
+					// player.addListener('videochange', videoChangeHandler); //监听视频地址改变
+				}
+
+				function pauseHandler() {
+					console.log("暂停播放");
+				}
+				
+
+
+
+
+		</script>
+</div>
+
+<!--
+video: [
+	['examples01.mp4', 'video/mp4', '标清', 5],
+	['examples01.webm', 'video/webm', '标清', 0],
+	['examples01.ogg', 'video/ogg', '标清', 0],
+	['examples02.mp4', 'video/mp4', '高清', 10],
+	['examples03.mp4', 'video/mp4', '高清', 0],
+	['examples04.mp4', 'video/mp4', '超清', 0]
+]
+数组里各值的意思是：['视频地址','视频类型','清晰度名称，可以为空',权重]
+视频地址：即视频地址，可以是mp4，flv，f4v，m3u8以及rtmp协议
+视频类型：只有当有类型时才需要填写，如果是m3u8或rtmp协议时留空
+清晰度名称：注意要么都要有，要么全留空
+权重：即在相等条件下优先播放顺序，数值越大，权重超高
+
+-->
