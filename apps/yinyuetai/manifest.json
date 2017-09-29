@@ -29,7 +29,7 @@
             "run_at": "document_start"
         }
     ], 
-    "homepage_url": "https://github.com/wangli0",
+    "homepage_url": "https://github.com/wangli0/chrome_ex/tree/master/apps/yinyuetai",
     "web_accessible_resources": [
     	"js/jquery.min.js",
     	"easyui/jquery.easyui.min.js",
