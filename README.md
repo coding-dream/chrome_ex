@@ -6,6 +6,10 @@
 - [ ] 广告拦截
 - [ ] 12306抢票
 
+### 案例展示[在线视频解析]
+![app_yinyuetai_1](images/app_yinyuetai_1.png)
+![app_yinyuetai_1](images/app_yinyuetai_2.png)
+
 ### 参考资料 :zap:
 - :link: [Chrome插件开发文档](https://developer.chrome.com/extensions)
 - :link: [360安全浏览器开发文档](http://open.se.360.cn/open/extension_dev/overview.html)
