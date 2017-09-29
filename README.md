@@ -8,8 +8,8 @@
 
 ### 参考资料 :zap:
 - :link: [Chrome插件开发文档](https://developer.chrome.com/extensions)
-- :link: [360浏览器开发文档](http://open.se.360.cn/open/extension_dev/overview.html)
-- :link: [Chrome插件官方文档](https://developer.chrome.com/extensions)
+- :link: [360安全浏览器开发文档](http://open.se.360.cn/open/extension_dev/overview.html)
+- :link: [360极速浏览器开发文档](http://open.chrome.360.cn/extension_dev/overview.html)
 - :link: [chrome插件Demo](https://github.com/sxei/chrome-plugin-demo)
 
 ### 感谢
