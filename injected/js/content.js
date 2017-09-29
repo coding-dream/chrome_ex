@@ -60,7 +60,7 @@ function fuckBaiduAD(){
 		(document.head || document.body).appendChild(temp);
 		var css = `
 			.ad_right{ display:none;} 			/* 移除广告 */
-			.ad_recomment{display:none;}			/* 覆盖推荐 */
+			.ad_recomment{display:none;}		/* 覆盖推荐 */
 		`;
 		temp.innerHTML = css;
 		console.log('已注入自定义CSS！');
