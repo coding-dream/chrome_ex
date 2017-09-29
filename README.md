@@ -2,13 +2,13 @@
 [![chrome扩展文档](images/logo.png)](https://developer.chrome.com/extensions)
 
 ### 已打包扩展列表 :arrow_down:
-- [x] [在线视频解析](crx/yinyuetai.crx)
+- [x] [在线视频解析](crx/video_parse.crx)
 - [ ] 广告拦截
 - [ ] 12306抢票
 
 ### 案例展示[在线视频解析]
-![app_yinyuetai_1](images/app_yinyuetai_1.png)
-![app_yinyuetai_1](images/app_yinyuetai_2.png)
+![app_video_parse_1](images/app_video_parse_1.png)
+![app_video_parse_2](images/app_video_parse_2.png)
 
 ### 参考资料 :zap:
 - :link: [Chrome插件开发文档](https://developer.chrome.com/extensions)
