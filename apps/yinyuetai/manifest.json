@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"name": "音悦台视频下载",
+	"name": "在线视频地址解析",
 	"version": "1.0.0",
 	"icons":
 	{
@@ -15,22 +15,41 @@
 	"browser_action": 
 	{
 		"default_icon": "images/icon.png",
-		"default_title": "音悦台视频下载",
+		"default_title": "在线视频地址解析",
 		"default_popup": "popup.html"
 	},
 	"content_scripts": [
         {
             "matches": ["<all_urls>"], // 即使是使用chrome.tabs.executeScript也是content_scripts的一种方式，必须声明content_scripts
-			"js": ["js/jquery.js","js/content.js"],
+            "exclude_matches": ["*://*.baidu.com/*","*://*.jianshu.com/*"],
+			"js": [
+					"js/jquery.min.js",
+					"js/content.js"
+			],
             "run_at": "document_start"
         }
     ], 
+    "homepage_url": "https://github.com/wangli0",
+    "web_accessible_resources": [
+    	"js/jquery.min.js",
+    	"easyui/jquery.easyui.min.js",
+    	"easyui/locale/easyui-lang-zh_CN.js",
+    	"js/inject.js",
+    	"js/dialog.js",
+    	"easyui/themes/material/easyui.css",
+    	"easyui/themes/color.css", // 影响个别网站样式
+    	"easyui/themes/icon.css",
+
+    	"easyui/themes/icons/*",
+    	"easyui/themes/material/images/*"
+    ],
 	"permissions":
 	[
 		"webRequest", // web请求
 		"webRequestBlocking", // 阻塞式web请求
 		"http://*/*",
 		"https://*/*",
-		"tabs"
+		"tabs",
+		"contextMenus"
 	]
 }

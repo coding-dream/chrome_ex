@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2,
+	"name": "页面自动刷新",
+	"version": "1.0.0",
+	"icons":
+	{
+		"16": "images/icon.png",
+		"48": "images/icon.png",
+		"128": "images/icon.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+	},
+	"browser_action": 
+	{
+		"default_icon": "images/icon.png",
+		"default_title": "页面自动刷新",
+		"default_popup": "popup.html"
+	},
+	"permissions":
+	[
+		"http://*/*",
+		"https://*/*",
+		"tabs"
+	]
+}
