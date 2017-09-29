@@ -18,8 +18,14 @@ function injectCss(cssPath){
 }
 
 function initCustomPanel(){
-	var jsPath = "js/jquery.min.js";
-	injectJs(jsPath);
+
+	if (typeof jQuery == 'undefined') { 
+		console.log("jQuery 未加载");
+		var jsPath = "js/jquery.min.js";
+		injectJs(jsPath);
+	} else { 
+		console.log("jQuery 已加载");
+	} 
 
 	var cssPath = "css/inject.css";
 	injectCss(cssPath);
