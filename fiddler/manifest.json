@@ -1,0 +1,40 @@
+{
+	"manifest_version": 2,
+	"name": "我的Fiddler",
+	"version": "1.0.0",
+	"icons":
+	{
+		"16": "images/icon.png",
+		"48": "images/icon.png",
+		"128": "images/icon.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+	},
+	"browser_action": 
+	{
+		"default_icon": "images/icon.png",
+		"default_title": "我的Fiddler",
+		"default_popup": "popup.html"
+	},
+	"permissions":
+	[
+		"webRequest",
+		"webRequestBlocking",
+		"http://*/*",
+		"https://*/*"
+	],
+	"commands": {
+    "my_custom": {
+    "suggested_key": {
+      "default": "Alt+J", 
+      "windows": "Alt+J",
+      "mac": "Alt+J",
+      "chromeos": "Alt+J",
+      "linux": "Alt+J" 
+  	},
+    "description": "open bookmarks"
+	}
+  }
+}
