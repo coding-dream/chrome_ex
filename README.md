@@ -1,12 +1,10 @@
 # chrome扩展开发
 [![chrome扩展文档](images/logo.png)](https://developer.chrome.com/extensions)
 
-本项目的github地址：[https://github.com/wangli0/chrome_ex](https://github.com/wangli0/chrome_ex)
-
-本项目的oschina地址：[https://gitee.com/need88.com/chrome_ex](https://gitee.com/need88.com/chrome_ex)
-
 ### 已打包扩展列表 :arrow_down:
 - [x] [在线视频解析](crx/video_parse_v0.1.crx)
+- [x] [自定义简书首页](apps/jianshu)
+- [x] [页面自动刷新](apps/autoRefresh)
 - [ ] 广告拦截
 - [ ] 12306抢票
 
