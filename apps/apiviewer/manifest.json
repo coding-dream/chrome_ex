@@ -1,0 +1,79 @@
+{
+	"manifest_version": 2,
+	"name": "api viewer",
+	"version": "1.0.0",
+	"icons":
+	{
+		"16": "images/icon.png",
+		"48": "images/icon.png",
+		"128": "images/icon.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+	},
+	"browser_action": 
+	{
+		"default_icon": "images/icon.png",
+		"default_title": "api viewer",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+        {
+            "matches": ["<all_urls>"], 
+            "exclude_matches": ["*://*.baidu.com/*"],
+			"js": [
+					"js/jquery.min.js",
+					"js/rxutils.js",
+					"js/content.js"
+			],
+            "run_at": "document_start"
+        }
+    ], 	
+    "homepage_url": "https://xx.com",
+    "web_accessible_resources": [
+    	"js/jquery.min.js",
+    	"js/inject.js"
+    ],    
+	"permissions":
+	[
+		"webRequest",
+		"webRequestBlocking",
+		"http://*/*",
+		"https://*/*",
+		"storage"
+	],
+	// 注意别和已知快捷键冲突,否则无反应
+	"commands": {
+	    "rx_get_cache": {
+		    "suggested_key": {
+		      "default": "Ctrl+Q", 
+		      "windows": "Ctrl+Q",
+		      "mac": "Ctrl+Q",
+		      "chromeos": "Ctrl+Q",
+		      "linux": "Ctrl+Q" 
+		  	},
+		    "description": "rx_get_cache"
+		},		
+	    "rx_save_cache": {
+		    "suggested_key": {
+		      "default": "Alt+Q", 
+		      "windows": "Alt+Q",
+		      "mac": "Alt+Q",
+		      "chromeos": "Alt+Q",
+		      "linux": "Alt+Q" 
+		  	},
+		    "description": "rx_save_cache"
+		},
+	    "rx_clear_cache": {
+		    "suggested_key": {
+		      "default": "Alt+Shift+S", 
+		      "windows": "Alt+Shift+S",
+		      "mac": "Alt+Shift+S",
+		      "chromeos": "Alt+Shift+S",
+		      "linux": "Alt+Shift+S" 
+		  	},
+		    "description": "rx_clear_cache"
+		}
+  }
+}
