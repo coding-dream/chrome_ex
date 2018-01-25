@@ -5,18 +5,31 @@
 	<meta charset="utf-8"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<style>
-	body {
-		font-family: 'Microsoft Yahei';
-		width: 500px;
-		min-height: 100px;
-	}
-	a {margin-right: 10px;}
+		body {
+			font-family: 'Microsoft Yahei';
+			width: 500px;
+			min-height: 100px;
+		}
+		a { margin-right: 10px;}
 	</style>
+
+	
 </head>
 <body>
 	<h1>API Viewer</h1>
 
-	<script type="text/javascript" src="js/jquery.js"></script>
+	<p>快捷键: Ctrl + Q 获取缓存</p>
+	<p>快捷键: Alt + Q 存入缓存</p>
+	<p>快捷键: Alt + Shift + S 删除缓存</p>
+				
+	<form>
+		<input id="config" name="on-off" type="checkbox">是否启用插件</input>
+	</form>
+
+	<a href="javascript:;" id="rx_con">确认</a>
+	
+	<!--注意 popup.html 内是不能写内联js的 -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/popup.js"></script>
 </body>
 </html>

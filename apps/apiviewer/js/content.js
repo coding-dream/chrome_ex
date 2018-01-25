@@ -1,8 +1,9 @@
-var apis = new Array();
-
 document.addEventListener('DOMContentLoaded', function(){
 	initData();
 	initView();
+	setTimeout(function(){
+		tellbgLoad();
+	}, 9000);
 });	
 
 
@@ -31,6 +32,16 @@ function initView(){
 chrome.runtime.onMessage.addListener(function(param, sender, sendResponse) {
 	var data = param.data;
 	$("#rx_api").remove();
+
+	console.log(data);
 	$("body").prepend(data);
 	sendResponse("success");
 });
+
+
+function tellbgLoad(){
+	// 发送消息给background.js
+	chrome.runtime.sendMessage({cmd: "invokeCache"}, function(response) {
+		console.log('收到来自后台的回复：' + response);
+	});
+}
