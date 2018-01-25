@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	initView();
 	setTimeout(function(){
 		tellbgLoad();
-	}, 9000);
+	}, 7000);
 });	
 
 
@@ -23,7 +23,9 @@ function initView(){
 	var inject_layout = document.createElement('div');
 	inject_layout.innerHTML = `
 		<center>
-			<p>have a happy day!</p>
+			<div style="margin:36px;">
+				<p><a style="color:green;font-size:28px;" href="https://www.jianshu.com/u/79a88a044955" target="_blank">简书: 编程之乐</a></p>
+			</div>
 		</center>
 	`;
 	$("body").prepend(inject_layout);
