@@ -5,6 +5,9 @@ var urls = new Array();
 var tabId = null;
 var isEnable = false;
 
+// true 表示默认手机
+var ua_type = false;
+
 chrome.webRequest.onBeforeRequest.addListener(details => {
 	if(details.url.indexOf("xx.com") > -1){ 
 		var content = "<h1>hello world</h1>"
@@ -13,17 +16,17 @@ chrome.webRequest.onBeforeRequest.addListener(details => {
 }, {urls: ["<all_urls>"]}, ["blocking"]);
 
 var uaStrings = {
-  "Firefox 41": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:41.0) Gecko/20100101 Firefox/41.0",
-  "Chrome 41": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36",
-  "IE 11": "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0;  rv:11.0) like Gecko",
-  "XiaoMi5s": "Mozilla/5.0 (Linux; U; Android 7.0; zh-CN; MI 5s Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.7.0.953 Mobile Safari/537.36",
-  "vivoX9Plus": "Mozilla/5.0 (Linux; Android 6.0.1; vivo X9Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043409 Safari/537.36 MicroMessenger/6.5.13.1100 NetType/4G Language/zh_CN",
+   "firefox41": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:41.0) Gecko/20100101 Firefox/41.0",
+   "chrome41": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36",
+   "IE 11": "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0;  rv:11.0) like Gecko",
+   "xiaomi5s": "Mozilla/5.0 (Linux; U; Android 7.0; zh-CN; MI 5s Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.7.0.953 Mobile Safari/537.36",
+   "vivoX9plus": "Mozilla/5.0 (Linux; Android 6.0.1; vivo X9Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043409 Safari/537.36 MicroMessenger/6.5.13.1100 NetType/4G Language/zh_CN",
    "iPhone": "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5",
-   "BaiduSpider": "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)",
+   "baiduspider": "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)",
    "360": "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.com/help/help_3_2.html)",
    "Android": "Mozilla/5.0 (Linux; U; Android 2.2.1; zh-cn; HTC_Wildfire_A3333 Build/FRG83D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1",
    "Nexus7": "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19",
-   "vivo": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; vivo X5Pro D Build/LRX21M) okhttp/3.3.0 haruki/3.2.0",
+   "vivo": "Dalvik/2.1.0 (Linux; U; Android 5.0.2; vivo X5Pro D Build/LRX21M) okhttp/3.3.0 haruki/3.2.0"
 }
 
 /**
@@ -48,7 +51,11 @@ chrome.webRequest.onBeforeSendHeaders.addListener(details => {
 
 	for (var header of details.requestHeaders) {
 	    if (header.name.toLowerCase() === "user-agent") {
-		    header.value = uaStrings.vivo;
+	    	if(ua_type){
+			    header.value = uaStrings.vivo;
+	    	} else {
+			    header.value = uaStrings.chrome41;
+	    	}
 	    } else if (header.name.toLowerCase() === "cookie"){
 	    	// header.value = "no cookie give you!";
 	    }
