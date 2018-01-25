@@ -32,4 +32,5 @@ chrome.runtime.onMessage.addListener(function(param, sender, sendResponse) {
 	var data = param.data;
 	$("#rx_api").remove();
 	$("body").prepend(data);
+	sendResponse("success");
 });

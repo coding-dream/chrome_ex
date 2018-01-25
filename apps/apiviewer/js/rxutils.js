@@ -1,7 +1,7 @@
 function uniqueArray(array){
 	var tempArray = [];
 	var results = [];
-	for(var i=0;i<array.length;i++){
+	for(var i = 0;i < array.length; i++){
 		tempArray[array[i]] = null;
 	}
 	for(var key in tempArray){

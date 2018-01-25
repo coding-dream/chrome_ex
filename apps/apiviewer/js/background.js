@@ -71,34 +71,26 @@ chrome.webRequest.onHeadersReceived.addListener(details => {
 /* 监听快捷键 */
 chrome.commands.onCommand.addListener(function(command) {
  	 if (command == "rx_get_cache") {
-		chrome.storage.local.get(null,function(result) {
-			sendMessageToContentScript(tabId,{"data" : result.data});
-		});
+ 	 	getCache();
 	} else if(command == "rx_clear_cache"){
 		clearCache();
 	} else if(command == "rx_save_cache"){
-		var buffer = `<div id = "rx_api">`;
-		for(var i = 0; i < urls.length; i++){
-			buffer += `<p> ${urls[i].uurl} </p><br/>`;
-		}
-		buffer += `</div>`;
-		chrome.storage.local.set({"data" : buffer, function(){
-			alert("save_cache success!");
-		}});		
+		saveCache();
 	}
 });
 
 
 function sendMessageToContentScript(tabId,message) {
 	chrome.tabs.sendMessage(tabId, message, function(response) {
-		console.log("background-> 收到: " + response);
+		// jQuery已创建DOM
+		if(response === "success"){
+			console.log("remove dom delay 10s");
+		}
 	});
 }
 
 function pushArray(url){
 	var md5Url = md5(url);
-	console.log("============= push " + md5Url + "============");
-
 	urls.push({"md5" : md5Url, "uurl" : url});
 
 	/*
@@ -118,3 +110,38 @@ function clearCache(){
 	});
 
 }
+
+function uniqueArray(array){
+	var tempArray = [];
+	var results = [];
+	for(var i = 0;i < array.length; i++){
+		tempArray[array[i].uurl] = null;
+	}
+	for(var key in tempArray){
+		results.push(key);
+	}
+	return results;
+}
+
+function saveCache(){
+	var newUrls = uniqueArray(urls);
+	console.log(newUrls);
+	var buffer = `<div id = "rx_api">`;
+	for(var i = 0; i < newUrls.length; i++){
+		buffer += `<p> ${newUrls[i]} </p><br/>`;
+	}
+	buffer += `</div>`;
+
+	console.log("buffer : " + buffer);
+	chrome.storage.local.set({"data" : buffer},function(){
+		alert("save cache success!");
+	});	
+}
+
+function getCache(){
+	chrome.storage.local.get(null,function(result) {
+		sendMessageToContentScript(tabId,{"data" : result.data});
+	});
+}
+
+
