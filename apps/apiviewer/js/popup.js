@@ -6,7 +6,7 @@ $(function(){
 	chrome.storage.local.get(defaultConfig, function(jsonObj) {
 		document.getElementById('config_enable').checked = jsonObj.enable;
 		document.getElementById('config_ua').checked = jsonObj.ua;
-
+		
 		chrome.extension.getBackgroundPage().isEnable = jsonObj.enable;
 		chrome.extension.getBackgroundPage().ua_type = jsonObj.ua;		
 	});

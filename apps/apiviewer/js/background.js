@@ -52,7 +52,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(details => {
 	for (var header of details.requestHeaders) {
 	    if (header.name.toLowerCase() === "user-agent") {
 	    	if(ua_type){
-			    header.value = uaStrings.vivo;
+			    header.value = uaStrings.Android;
 	    	} else {
 			    header.value = uaStrings.chrome41;
 	    	}
