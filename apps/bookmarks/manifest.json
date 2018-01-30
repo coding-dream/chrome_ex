@@ -1,0 +1,54 @@
+{
+	"manifest_version": 2,
+	"name": "bookmarks",
+	"version": "1.0.0",
+	"icons":
+	{
+		"16": "images/icon.png",
+		"48": "images/icon.png",
+		"128": "images/icon.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+	},
+	"browser_action": 
+	{
+		"default_icon": "images/icon.png",
+		"default_title": "bookmarks",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+        {
+            "matches": ["<all_urls>"], 
+            "js": ["js/content-script.js"],
+            "run_at": "document_start"
+        }
+    ], 	
+    "homepage_url": "https://xx.com",
+    "web_accessible_resources": [
+    	"js/jquery.min.js",
+    	"op_save.html"
+    ],    
+	"permissions":
+	[
+		"webRequest",
+		"webRequestBlocking",
+		"http://*/*",
+		"https://*/*",
+		"storage"
+	],
+	// 注意别和已知快捷键冲突,否则无反应
+	"commands": {
+	    "rx_add_bookmark": {
+		    "suggested_key": {
+		      "default": "Alt+U", 
+		      "windows": "Alt+I",
+		      "mac": "Alt+I",
+		      "chromeos": "Alt+I",
+		      "linux": "Alt+I" 
+		  	},
+		    "description": "收藏"
+		}
+  }
+}
