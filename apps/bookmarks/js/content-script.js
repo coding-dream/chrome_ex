@@ -7,5 +7,4 @@ chrome.runtime.onMessage.addListener(function(param, sender, sendResponse) {
 		var obj = {"title" : title, "url" : url};
 		sendResponse(JSON.stringify(obj));
 	}
-
 });

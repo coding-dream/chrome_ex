@@ -8,19 +8,96 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 
 	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-size: 18px;
+			list-style: none;
+			text-decoration: none;
+		}
+
 		body {
 			font-family: 'Microsoft Yahei';
-			width: 500px;
-			min-height: 100px;
+			background: #669999;
+			/* opacity 会导致子元素继承opacity */
+			opacity: 1; 
 		}
-		a { margin-right: 10px;}
-	</style>
 
-	
+		div.content {
+			padding: 16px;
+			/*background: rgba(255,155,85,50);*/
+			margin: 100px auto;
+			width: 1000px;
+			border: 1px solid gray;			
+		}
+
+		div.content div.d_1 {
+			text-align: center;
+			opacity: 0.7;
+		}
+
+		div.content div.d_1 h5 {
+			margin-bottom: 16px;
+		}
+
+		div.content div.d_1 ul.c_1 li {
+			margin-bottom: 10px;
+			color: #333366;
+			list-style: none;
+		}
+
+
+		div.content div.d_1 input.a_1 {
+			color: #333366;
+			font-size: 18px;
+			width: 100px;
+		}
+
+		div.content div.d_1 ul.c_1 li input {
+			width: 700px;
+			height: 30px;
+			color: #666699;
+		}
+
+		div.list {
+			margin: 100px auto;
+			width: 1000px;
+		}
+		div.list ul li a{
+			color: #FFEC8B;
+			font-size: 15px;
+		}
+
+		div.list ul li a.list_a {
+			color: #333333;
+		}
+
+	</style>
 </head>
 <body>
 
-	<h1>bookmarks 保存</h1>
+	<div class="content">
+		
+		<div class="d_1">
+
+			<h5>bookmarks 保存</h5>
+			<form method="GET" action="#">
+				<ul class="c_1">
+					<li><span>名称:  &nbsp;</span><input id="input_name" class="c_input" type="text"/></li>
+					<li><span>网址:  &nbsp;</span><input id="input_url" class="c_input" type="text"/></li>
+					<li><span>分类:  &nbsp;</span><input id="input_cate" class="c_input" value="default" type="text"/></li>						
+				</ul>
+				<input id="btn_add" class="a_1" type="button" value="提交"/>
+				<input id="btn_list" class="a_1" type="button" value="列表"/>
+			</form>
+		</div>
+	</div>
+
+	<div class="list">
+		<h4>列表</h4>
+		<ul id="list_u">
+		</ul>
+	</div>			
 
 	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript" src="js/base64.js"></script>	

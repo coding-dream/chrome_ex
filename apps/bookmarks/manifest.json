@@ -36,7 +36,8 @@
 		"webRequestBlocking",
 		"http://*/*",
 		"https://*/*",
-		"storage"
+		"storage",
+		 "http://localhost:8080/*"  
 	],
 	// 注意别和已知快捷键冲突,否则无反应
 	"commands": {
